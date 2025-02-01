@@ -7,18 +7,49 @@ function rainbowCursor(options) {
   let cursor = { x: width / 2, y: width / 2 };
   let particles = [];
   let canvas, context, animationFrame;
-  let switchInterval = 20;
+  let switchInterval = 350;
+  let currentflag = 1;
+  let movecount = 0;
 
   const totalParticles = options?.length || 30;
-  const colors = options?.colors || [
-    "#FE0000",
-    "#FD8C00",
-    "#FFE500",
-    "#119F0B",
-    "#0644B3",
-    "#C22EDC",
-  ];
-  const size = options?.size || 3;
+  const arraytest = [
+    [ //trans
+      '#5BCEFA',
+      '#F5A9B8',
+      '#FFFFFF',
+      '#F5A9B8',
+      '#5BCEFA'
+    ],
+    [ //nb
+      '#FCF434',
+      '#FFFFFF',
+      '#9C59D1',
+      '#2C2C2C'
+    ],
+    [ //bi
+      '#D60270',
+      '#9B4F96',
+      '#0038A8'
+    ],
+    [ //lesbi
+      '#D52D00',
+      '#EF7627',
+      '#FF9A56',
+      '#FFFFFF',
+      '#D162A4',
+      '#B55690',
+      '#A30262'
+    ],
+    [ //polyam
+      '#C94451',
+      '#1C2137',
+      '#F6B55D',
+      '#1C2137',
+      '#4467CB'
+    ]
+    ];
+  let colors = options?.colors || arraytest[0];
+  const size = options?.size || 5;
 
   let cursorsInitted = false;
 
@@ -101,6 +132,16 @@ function rainbowCursor(options) {
         addParticle(cursor.x, cursor.y);
       }
     }
+    if (movecount === switchInterval) {
+      if (currentflag === arraytest.length) {
+        currentflag = 0;
+      } else {
+        colors = arraytest[currentflag];
+        currentflag++;
+      }
+      movecount = 0;
+    }
+    movecount++
   }
 
   function addParticle(x, y, image) {
@@ -130,6 +171,7 @@ function rainbowCursor(options) {
 
     colors.forEach((color, index) => {
       context.beginPath();
+      context.globalAlpha = 0.4;
       context.strokeStyle = color;
 
       if (particleSets.length) {
