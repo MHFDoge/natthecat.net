@@ -10,7 +10,6 @@
         "/robots.txt",
         "/styles.css",
         "/img/*",
-        "/fonts/*",
-        "/rainbowCursor.js"
+        "/fonts/*"
     ]
 }
