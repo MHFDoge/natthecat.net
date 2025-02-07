@@ -6,6 +6,7 @@
          
   }
 body {
+    min-height: 100vh;
     font-family: 'opendyslexic', monospace, sans-serif;
     font-size: 16px;
     line-height: 1.5;

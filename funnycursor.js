@@ -7,7 +7,7 @@ function rainbowCursor(options) {
   let cursor = { x: width / 2, y: width / 2 };
   let particles = [];
   let canvas, context, animationFrame;
-  let switchInterval = 350;
+  let switchInterval = 100;
   let currentflag = 1;
   let movecount = 0;
 
