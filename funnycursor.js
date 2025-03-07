@@ -100,7 +100,10 @@ function rainbowCursor(options) {
   // Bind events that are needed
   function bindEvents() {
     element.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("resize", onWindowResize);
+    window.addEventListener("resize", onWindowResize);      
+    element.addEventListener("touchmove", onTouchMove);
+    element.addEventListener("touchstart", onTouchStart);
+    element.addEventListener("touchend", onTouchEnd);
   }
 
   function onWindowResize(e) {
@@ -142,6 +145,23 @@ function rainbowCursor(options) {
       movecount = 0;
     }
     movecount++
+  }
+
+  function onTouchMove(e) {
+    e.preventDefault();
+    const touch = e.touches[0];
+    onMouseMove({ clientX: touch.clientX, clientY: touch.clientY });
+  }
+
+  function onTouchStart(e) {
+    e.preventDefault();
+    const touch = e.touches[0];
+    onMouseMove({ clientX: touch.clientX, clientY: touch.clientY });
+  }
+
+  function onTouchEnd(e) {
+    e.preventDefault();
+    // Handle touch end if necessary
   }
 
   function addParticle(x, y, image) {
@@ -203,6 +223,9 @@ function rainbowCursor(options) {
     cancelAnimationFrame(animationFrame);
     element.removeEventListener("mousemove", onMouseMove);
     window.addEventListener("resize", onWindowResize);
+    element.removeEventListener("touchmove", onTouchMove);
+    element.removeEventListener("touchstart", onTouchStart);
+    element.removeEventListener("touchend", onTouchEnd);
   };
 
   function Particle(x, y) {

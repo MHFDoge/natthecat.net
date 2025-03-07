@@ -24,3 +24,14 @@ img {
     image-rendering: pixelated;
     image-rendering: -webkit-optimize-contrast;
 }
+.webbutton img {
+    width: 88px;
+    height: 31px;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+  }
+  .webbutton img:hover {
+    transform: scale(2.3)
+  }
