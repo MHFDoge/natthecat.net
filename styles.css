@@ -14,9 +14,22 @@ body {
     margin: 0;
     padding: 0;
 }
+.GargleMyBalls {
+  visibility: hidden;
+  position: absolute;
+}
+
 .email {
-    color: #c80085;
-    background-color: #606060;
+  color: #ff29b8;
+  background-color: #0a0a0a;
+}
+.colonthree span + span {
+  margin-left: 30px;
+}
+.colonthree {
+  font-size: 30px;
+  margin-left: 30px;
+  color: #ff29b8;
 }
 img {
     image-rendering: auto;
