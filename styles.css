@@ -19,9 +19,18 @@ body {
   color: #ff29b8;
   background-color: #0a0a0a;
 }
+.enby-gradient {
+	background-image: linear-gradient(to left, #fdf12d 25%, #fdfdfd 25% 45%, #9b57cf 50% 75%, #444 75% 100%) !important;
+}
+
+.trans-gradient {
+	background-image: linear-gradient(to left, #32bcf6 20%, #f7b0c4 20% 40%, #fff 40% 60%, #f7b0c4 60% 80%, #32bcf6 80% 100%) !important;
+}
+
 .colonthree span + span {
   margin-left: 30px;
 }
+
 .colonthree {
   font-size: 30px;
   margin-left: 30px;
@@ -36,6 +45,7 @@ img {
 .webbutton img {
     width: 88px;
     height: 31px;
+    image-rendering: pixelated;
     -webkit-transition-property: all;
     transition-property: all;
     -webkit-transition-duration: 0.3s;
